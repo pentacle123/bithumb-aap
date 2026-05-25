@@ -36,8 +36,8 @@ function Header() {
           </span>
         </Link>
         <nav className="flex-1 flex items-center gap-1 overflow-x-auto">
-          <span className="group relative px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap bg-ink-900 text-cream">
-            <span className="text-[11px] mr-1.5 opacity-70">①</span>기회 발견
+          <span className="group relative px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap bg-bithumb text-white shadow-soft">
+            <span className="text-[11px] mr-1.5 opacity-80">①</span>기회 발견
           </span>
           <span className="group relative px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap text-ink-500 cursor-not-allowed">
             <span className="text-[11px] mr-1.5 opacity-70">②</span>숏폼 전략

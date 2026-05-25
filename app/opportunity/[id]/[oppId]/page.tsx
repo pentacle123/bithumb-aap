@@ -102,11 +102,11 @@ export default function PersonaPage({
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
                   disabled
-                  className="px-5 py-2.5 rounded-full bg-ink-900 text-cream text-sm font-medium opacity-60 cursor-not-allowed inline-flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-full bg-bithumb text-white text-sm font-medium opacity-70 cursor-not-allowed inline-flex items-center gap-2 shadow-soft"
                 >
                   <span>🎬</span>
                   <span>AI 숏폼 전략 보기</span>
-                  <span className="text-[10px] uppercase tracking-wider opacity-70 ml-1">
+                  <span className="text-[10px] uppercase tracking-wider opacity-80 ml-1">
                     soon
                   </span>
                 </button>
@@ -277,13 +277,18 @@ export default function PersonaPage({
         title="BRAND BRIDGE"
         desc="인식 공백을 빗썸 자산의 차별점으로 자연스럽게 연결하는 핵심 메시지와 활용 자산."
       >
-        <div className="rounded-2xl bg-ink-900 text-cream p-7 md:p-9 shadow-elevated relative overflow-hidden">
-          <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-bithumb/15 blur-2xl" aria-hidden />
-          <div className="relative">
-            <div className="text-[10px] uppercase tracking-[0.22em] text-bithumb font-bold mb-3">
-              + CORE MESSAGE
+        <div className="rounded-2xl border-2 border-bithumb/40 bg-gradient-to-br from-bithumb-50 via-cream to-cream p-7 md:p-9 shadow-card relative overflow-hidden">
+          <span
+            className="absolute left-0 top-0 bottom-0 w-1.5 bg-bithumb"
+            aria-hidden
+          />
+          <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-bithumb/10 blur-2xl" aria-hidden />
+          <div className="relative pl-3">
+            <div className="text-[10px] uppercase tracking-[0.22em] text-bithumb-deep font-bold mb-3 flex items-center gap-2">
+              <span>+</span>
+              <span>CORE MESSAGE</span>
             </div>
-            <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-balance leading-[1.2]">
+            <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-balance leading-[1.2] text-ink-900">
               {opportunity.bridge.message}
             </p>
           </div>
@@ -384,7 +389,7 @@ function GlobalProgress({ active }: { active: 1 | 2 | 3 | 4 }) {
                 <span
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
                     status === 'active'
-                      ? 'bg-ink-900 text-cream'
+                      ? 'bg-bithumb text-white'
                       : status === 'done'
                       ? 'bg-white border border-line text-ink-700'
                       : 'bg-white/60 border border-line text-ink-300'

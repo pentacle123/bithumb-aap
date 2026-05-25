@@ -81,13 +81,17 @@ export default function TerritoryPage({ params }: { params: { id: string } }) {
                 />
               </div>
 
-              <div className="mt-8 rounded-2xl bg-ink-900 text-cream p-5 md:p-7 shadow-elevated relative overflow-hidden">
-                <div className="absolute -right-12 -top-12 w-36 h-36 rounded-full bg-bithumb/15 blur-2xl" aria-hidden />
-                <div className="relative">
-                  <div className="text-[10px] uppercase tracking-[0.22em] text-bithumb font-bold mb-3">
-                    Cluster Finder · 발견 맥락
+              <div className="mt-8 rounded-2xl border border-line bg-white p-5 md:p-7 shadow-card relative overflow-hidden">
+                <span
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-bithumb"
+                  aria-hidden
+                />
+                <div className="pl-2">
+                  <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-bithumb-deep font-bold mb-3">
+                    <span>🔭</span>
+                    <span>Cluster Finder · 발견 맥락</span>
                   </div>
-                  <p className="text-sm md:text-base leading-relaxed text-pretty">
+                  <p className="text-sm md:text-base leading-relaxed text-pretty text-ink-700">
                     {territory.blackBoxContext}
                   </p>
                 </div>
@@ -275,7 +279,7 @@ function GlobalProgress({
                 <span
                   className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
                     status === 'active'
-                      ? 'bg-ink-900 text-cream'
+                      ? 'bg-bithumb text-white'
                       : status === 'done'
                       ? 'bg-white border border-line text-ink-700'
                       : 'bg-white/60 border border-line text-ink-300'
@@ -360,7 +364,7 @@ function TierBadge({ tier }: { tier: 'MEGA' | 'LARGE' | 'STRATEGIC' }) {
   const styles = {
     MEGA: 'bg-bithumb text-white',
     LARGE: 'bg-gold text-white',
-    STRATEGIC: 'bg-ink-700 text-cream',
+    STRATEGIC: 'bg-accent-plum text-white',
   };
   return (
     <span
