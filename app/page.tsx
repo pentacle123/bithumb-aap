@@ -22,14 +22,14 @@ export default function MainPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-6 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-6 items-start lg:items-stretch">
             {/* LEFT */}
             <div>
               <div className="text-[11px] uppercase tracking-[0.22em] text-bithumb font-semibold mb-2.5">
                 ① 기회 발견 · OPPORTUNITY DISCOVERY
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-[44px] font-bold tracking-tight text-ink-900 text-balance leading-[1.12]">
-                관심사 속으로
+                빗썸, 소비자의 관심사 속에
                 <br />
                 <span className="text-bithumb">자연스럽게 스며들다</span>
               </h1>
@@ -89,7 +89,7 @@ export default function MainPage() {
             </div>
 
             {/* RIGHT — 7 BRAND ASSETS as white card (no black box) */}
-            <aside className="rounded-2xl border border-line bg-white p-5 shadow-card">
+            <aside className="rounded-2xl border border-line bg-white p-5 shadow-card h-full flex flex-col">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.22em] text-bithumb-deep font-bold">
@@ -106,7 +106,7 @@ export default function MainPage() {
                   <div className="text-[10px] text-ink-700 font-semibold">LENS</div>
                 </div>
               </div>
-              <ul className="grid grid-cols-2 gap-2">
+              <ul className="grid grid-cols-2 gap-2 flex-1 auto-rows-fr">
                 {BRAND_ASSETS.map((a, i) => (
                   <li
                     key={a.id}
