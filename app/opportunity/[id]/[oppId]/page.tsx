@@ -31,10 +31,10 @@ export default function PersonaPage({
   const maxVolume = Math.max(...opportunity.keywords.map((k) => k.volumeAnnual));
 
   return (
-    <main className="min-h-screen bg-cream">
+    <main className="bg-cream">
       {/* BREADCRUMB */}
       <div className="border-b border-line bg-white">
-        <div className="max-w-[1240px] mx-auto px-6 py-3">
+        <div className="max-w-[1240px] mx-auto px-6 py-2.5">
           <nav className="text-xs text-ink-500 flex items-center gap-2 flex-wrap">
             <Link href="/" className="hover:text-ink-900">
               기회 발견
@@ -54,313 +54,290 @@ export default function PersonaPage({
         </div>
       </div>
 
-      {/* GLOBAL 4-STEP PROGRESS — step 2 active here (analysis) */}
       <GlobalProgress active={2} />
 
-      {/* HERO */}
-      <section className="border-b border-line bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-soft opacity-40 pointer-events-none" aria-hidden />
-        <div className="relative max-w-[1240px] mx-auto px-6 py-12 md:py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-10 items-start">
-            {/* LEFT */}
-            <div>
-              <div className="flex items-center gap-3 mb-4 flex-wrap">
-                <Link
-                  href={`/opportunity/${territory.id}`}
-                  className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.22em] text-ink-500 hover:text-bithumb font-semibold transition-colors"
-                >
-                  <span aria-hidden>←</span>
-                  <span>{territory.emoji}</span>
-                  <span>{territory.categoryName}</span>
-                </Link>
-                <TypeBadge type={opportunity.type} />
-                <span className="text-[10px] font-mono text-ink-300 uppercase">
-                  {opportunity.id}
-                </span>
-              </div>
+      {/* COMPACT HERO */}
+      <section className="relative border-b border-line">
+        <div className="absolute inset-0 bg-grid-soft opacity-30 pointer-events-none" aria-hidden />
+        <div className="relative max-w-[1240px] mx-auto px-6 pt-4 pb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-4 items-stretch">
+            <div className="rounded-2xl border border-line bg-white p-4 shadow-card relative overflow-hidden">
+              <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-bithumb" aria-hidden />
+              <div className="pl-2">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  <Link
+                    href={`/opportunity/${territory.id}`}
+                    className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hover:text-bithumb font-semibold"
+                  >
+                    <span aria-hidden>←</span>
+                    <span>{territory.emoji}</span>
+                    <span>{territory.categoryName}</span>
+                  </Link>
+                  <TypeBadge type={opportunity.type} />
+                  <span className="text-[9px] font-mono text-ink-300 uppercase">
+                    {opportunity.id}
+                  </span>
+                </div>
 
-              <div className="flex items-start gap-5 mb-5">
-                <span className="text-[56px] md:text-[68px] leading-none shrink-0">
-                  {opportunity.emoji}
-                </span>
-                <div className="min-w-0">
-                  <h1 className="text-2xl md:text-3xl lg:text-[40px] font-bold tracking-tight text-ink-900 text-balance leading-[1.15]">
-                    {opportunity.title}
-                  </h1>
-                  <div className="mt-3 text-sm text-ink-500">
-                    <span className="font-semibold text-ink-700">WHO ·</span>{' '}
-                    {opportunity.who}
+                <div className="flex items-start gap-3 mb-2">
+                  <span className="text-[44px] md:text-[52px] leading-none shrink-0">
+                    {opportunity.emoji}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <h1 className="text-xl md:text-2xl lg:text-[26px] font-bold tracking-tight text-ink-900 text-balance leading-[1.15]">
+                      {opportunity.title}
+                    </h1>
+                    <div className="mt-1 text-[12px] text-ink-500">
+                      <span className="font-semibold text-ink-700">WHO ·</span>{' '}
+                      {opportunity.who}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <blockquote className="border-l-2 border-bithumb pl-5 py-1 text-base md:text-lg text-ink-700 italic text-pretty leading-relaxed">
-                "{opportunity.quote}"
-              </blockquote>
+                <blockquote className="border-l-2 border-bithumb pl-3 py-0.5 text-sm md:text-[15px] text-ink-700 italic text-pretty leading-snug">
+                  "{opportunity.quote}"
+                </blockquote>
 
-              {/* CTA — Phase 3/4 placeholders */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button
-                  disabled
-                  className="px-5 py-2.5 rounded-full bg-bithumb text-white text-sm font-medium opacity-70 cursor-not-allowed inline-flex items-center gap-2 shadow-soft"
-                >
-                  <span>🎬</span>
-                  <span>AI 숏폼 전략 보기</span>
-                  <span className="text-[10px] uppercase tracking-wider opacity-80 ml-1">
-                    soon
-                  </span>
-                </button>
-                <button
-                  disabled
-                  className="px-5 py-2.5 rounded-full bg-white border border-line text-sm font-medium text-ink-700 opacity-60 cursor-not-allowed inline-flex items-center gap-2"
-                >
-                  <span>🤝</span>
-                  <span>관심사 크리에이터 매칭</span>
-                  <span className="text-[10px] uppercase tracking-wider opacity-70 ml-1">
-                    soon
-                  </span>
-                </button>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    disabled
+                    className="px-3.5 py-1.5 rounded-full bg-bithumb text-white text-[12px] font-medium opacity-70 cursor-not-allowed inline-flex items-center gap-1.5 shadow-soft"
+                  >
+                    <span>🎬</span>
+                    <span>AI 숏폼 전략 보기</span>
+                    <span className="text-[9px] uppercase tracking-wider opacity-80">soon</span>
+                  </button>
+                  <button
+                    disabled
+                    className="px-3.5 py-1.5 rounded-full bg-white border border-line text-[12px] font-medium text-ink-700 opacity-70 cursor-not-allowed inline-flex items-center gap-1.5"
+                  >
+                    <span>🤝</span>
+                    <span>크리에이터 매칭</span>
+                    <span className="text-[9px] uppercase tracking-wider opacity-80">soon</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* RIGHT: HERO STATS */}
-            <aside className="rounded-2xl border border-line bg-cream-3 p-6 space-y-4 shadow-card">
-              <HeroStatRow
-                label="관심사 풀"
-                value={opportunity.broadContextLabel}
-                highlight
-              />
-              <HeroStatRow
-                label="코인 직접 매칭"
-                value={opportunity.cryptoConnectionLabel}
-              />
-              <HeroStatRow
-                label="키워드 수"
-                value={`${opportunity.keywordCount}개`}
-              />
-              <div className="border-t border-line pt-4">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-ink-500 font-semibold mb-2">
+            {/* RIGHT — hero stats compact */}
+            <aside className="rounded-2xl border border-line bg-white p-4 shadow-card flex flex-col gap-2">
+              <div className="grid grid-cols-3 gap-1.5">
+                <CompactStat
+                  label="관심사 풀"
+                  value={opportunity.broadContextLabel}
+                  tone="bithumb"
+                />
+                <CompactStat
+                  label="코인 매칭"
+                  value={opportunity.cryptoConnectionLabel}
+                />
+                <CompactStat
+                  label="키워드"
+                  value={`${opportunity.keywordCount}개`}
+                />
+              </div>
+              <div className="rounded-lg bg-cream-3 border border-line px-3 py-2 flex-1">
+                <div className="text-[9px] uppercase tracking-[0.22em] text-ink-500 font-bold mb-0.5">
                   WHEN
                 </div>
-                <div className="rounded-lg bg-white border border-line px-3 py-2.5">
-                  <p className="text-xs text-ink-900 font-medium leading-relaxed">
-                    {opportunity.when}
-                  </p>
-                </div>
+                <p className="text-[11px] text-ink-900 font-medium leading-snug">
+                  {opportunity.when}
+                </p>
               </div>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* SECTION 01: PERSONA */}
-      <Section
-        emoji="🎯"
-        eyebrow="01 · 타겟 페르소나"
-        title="WHO · PAIN · NEED · WHEN"
-        desc="소비자가 누구인지(WHO) · 어떤 페인을 가졌는지(PAIN) · 무엇이 필요한지(NEED) · 언제 만나는지(WHEN)를 ListeningMind 데이터로 분석한 결과입니다."
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <PersonaCard
-            label="WHO"
-            sub="누구인가"
-            tone="indigo"
-            field={opportunity.persona.who}
-          />
-          <PersonaCard
-            label="PAIN"
-            sub="무엇이 불편한가"
-            tone="crimson"
-            field={opportunity.persona.pain}
-          />
-          <PersonaCard
-            label="NEED"
-            sub="무엇을 원하는가"
-            tone="emerald"
-            field={opportunity.persona.need}
-          />
-          <PersonaCard
-            label="WHEN"
-            sub="언제 만나는가"
-            tone="amber"
-            field={opportunity.persona.when}
-          />
-        </div>
-      </Section>
-
-      {/* SECTION 02: KEYWORD EVIDENCE */}
-      <Section
-        emoji="📊"
-        eyebrow="02 · 데이터 증명"
-        title="KEYWORD EVIDENCE"
-        desc="소구 기회를 구성하는 검색 키워드의 연 검색량과 트렌드. 검색량 큰 순으로 정렬됨."
-      >
-        <div className="rounded-2xl border border-line bg-white overflow-hidden shadow-card">
-          <div className="px-5 py-3 border-b border-line bg-cream-2 grid grid-cols-[1.5fr_1fr_1.2fr] gap-4 text-[11px] uppercase tracking-[0.18em] text-ink-500 font-semibold">
-            <div>키워드</div>
-            <div className="text-right">연 검색량</div>
-            <div>트렌드</div>
-          </div>
-          <ul>
-            {opportunity.keywords.map((k, i) => (
-              <li
-                key={i}
-                className="px-5 py-4 grid grid-cols-[1.5fr_1fr_1.2fr] gap-4 items-center border-b border-line last:border-b-0 hover:bg-cream-3 transition-colors"
-              >
-                <div className="text-sm font-medium text-ink-900">{k.keyword}</div>
-                <div className="text-right text-sm font-semibold tabular-nums text-ink-900">
-                  {k.volumeLabel}
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="flex-1 h-1.5 rounded-full bg-cream-2 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-bithumb"
-                      style={{
-                        width: `${Math.min(100, (k.volumeAnnual / maxVolume) * 100)}%`,
-                      }}
-                    />
-                  </div>
-                  <span
-                    className={`text-[11px] font-semibold tabular-nums shrink-0 w-12 text-right ${
-                      k.trend > 0
-                        ? 'text-bithumb-deep'
-                        : k.trend < 0
-                        ? 'text-accent-blue'
-                        : 'text-ink-700'
-                    }`}
-                  >
-                    {k.trend > 0 ? '+' : ''}
-                    {k.trend}%
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      {/* SECTION 03: JOURNEY */}
-      <Section
-        emoji="🛣️"
-        eyebrow="03 · 소비자 여정"
-        title="JOURNEY"
-        desc="유입(INCOMING) · 이탈(OUTGOING) 검색 경로 분석과 그 사이에 존재하는 인식 공백."
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <JourneyCol
-            label="INCOMING · 유입 경로"
-            items={opportunity.journey.incoming}
-            positive
-          />
-          <JourneyCol
-            label="OUTGOING · 이탈 경로"
-            items={opportunity.journey.outgoing}
-          />
-        </div>
-        <div className="mt-5 rounded-2xl border-2 border-gold/50 bg-gold-50 p-6 md:p-7 relative overflow-hidden">
-          <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-gold/15 blur-2xl" aria-hidden />
-          <div className="relative">
-            <div className="text-[10px] uppercase tracking-[0.22em] text-gold-deep font-bold mb-2">
-              🔍 인식 공백 · THE GAP
-            </div>
-            <p className="text-base md:text-lg text-ink-900 font-semibold text-pretty leading-relaxed">
-              {opportunity.journey.gap}
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* SECTION 04: BRAND BRIDGE */}
-      <Section
-        emoji="🧬"
-        eyebrow="04 · 빗썸 연결"
-        title="BRAND BRIDGE"
-        desc="인식 공백을 빗썸 자산의 차별점으로 자연스럽게 연결하는 핵심 메시지와 활용 자산."
-      >
-        <div className="rounded-2xl border-2 border-bithumb/40 bg-gradient-to-br from-bithumb-50 via-cream to-cream p-7 md:p-9 shadow-card relative overflow-hidden">
-          <span
-            className="absolute left-0 top-0 bottom-0 w-1.5 bg-bithumb"
-            aria-hidden
-          />
-          <div className="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-bithumb/10 blur-2xl" aria-hidden />
-          <div className="relative pl-3">
-            <div className="text-[10px] uppercase tracking-[0.22em] text-bithumb-deep font-bold mb-3 flex items-center gap-2">
-              <span>+</span>
-              <span>CORE MESSAGE</span>
-            </div>
-            <p className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-balance leading-[1.2] text-ink-900">
-              {opportunity.bridge.message}
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-          <div className="rounded-2xl border border-line bg-white p-6 shadow-card">
-            <div className="text-[10px] uppercase tracking-[0.22em] text-ink-500 font-semibold mb-3">
-              활용 자산 · BITHUMB ASSETS
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {bridgeAssets.map((a) => (
-                <span
-                  key={a!.id}
-                  className="inline-flex items-center gap-2 bg-cream-2 px-3 py-1.5 rounded-full text-sm border border-line"
-                >
-                  <span className="text-base">{a!.icon}</span>
-                  <span className="font-semibold">{a!.label}</span>
-                  <span className="text-ink-500 text-xs">· {a!.sub}</span>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-2xl border border-line bg-white p-6 shadow-card">
-            <div className="text-[10px] uppercase tracking-[0.22em] text-ink-500 font-semibold mb-3">
-              연결 상품 · PRODUCTS
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {opportunity.bridge.products.map((p, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center bg-bithumb-50 text-bithumb-deep px-3 py-1.5 rounded-full text-sm font-semibold border border-bithumb-100"
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* SECTION 05: NEXT */}
-      <Section
-        emoji="🚀"
-        eyebrow="05 · 다음 단계"
-        title="NEXT · Phase 3 → 4"
-        desc="이 페르소나가 받을 다음 두 단계 — 숏폼 콘셉트 생성과 한국 크리에이터 매칭."
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <NextCard
-            phase="Phase 3"
-            icon="🎬"
-            title="AI 숏폼 아이디어 생성"
-            desc="이 소구 기회로 15-30초 숏폼 콘셉트 자동 생성 — Hook · Build · Reveal · CTA 4구조"
-          />
-          <NextCard
-            phase="Phase 4"
-            icon="🎯"
-            title="크리에이터 매칭"
-            desc="이 페르소나에 어울리는 한국 크리에이터 자동 매칭 — 채널 데이터·시청자 합치도 기반"
-          />
-        </div>
-      </Section>
-
-      {/* FOOTER NAV */}
-      <div className="max-w-[1240px] mx-auto px-6 py-12 border-t border-line">
-        <Link
-          href={`/opportunity/${territory.id}`}
-          className="inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 transition-colors"
+      {/* DASHBOARD 5 SECTIONS — densified */}
+      <section className="max-w-[1240px] mx-auto px-6 py-4 md:py-5 space-y-4">
+        {/* Row 1 — 01 Persona (4 small cards) */}
+        <DashboardBlock
+          eyebrow="01 · 타겟 페르소나"
+          title="WHO · PAIN · NEED · WHEN"
         >
-          ← {territory.categoryName} 영토로 돌아가기
-        </Link>
-      </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+            <PersonaMiniCard
+              label="WHO"
+              tone="indigo"
+              field={opportunity.persona.who}
+            />
+            <PersonaMiniCard
+              label="PAIN"
+              tone="crimson"
+              field={opportunity.persona.pain}
+            />
+            <PersonaMiniCard
+              label="NEED"
+              tone="emerald"
+              field={opportunity.persona.need}
+            />
+            <PersonaMiniCard
+              label="WHEN"
+              tone="amber"
+              field={opportunity.persona.when}
+            />
+          </div>
+        </DashboardBlock>
+
+        {/* Row 2 — 02 Keywords + 03 Journey side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <DashboardBlock
+            eyebrow="02 · 데이터 증명"
+            title="KEYWORD EVIDENCE"
+          >
+            <div className="rounded-xl border border-line bg-white overflow-hidden">
+              <div className="px-3 py-1.5 border-b border-line bg-cream-2 grid grid-cols-[1.5fr_0.9fr_1fr] gap-2 text-[10px] uppercase tracking-[0.18em] text-ink-500 font-semibold">
+                <div>키워드</div>
+                <div className="text-right">연 검색량</div>
+                <div>트렌드</div>
+              </div>
+              <ul>
+                {opportunity.keywords.slice(0, 5).map((k, i) => (
+                  <li
+                    key={i}
+                    className="px-3 py-1.5 grid grid-cols-[1.5fr_0.9fr_1fr] gap-2 items-center border-b border-line-soft last:border-b-0"
+                  >
+                    <div className="text-[12px] font-medium text-ink-900 truncate">
+                      {k.keyword}
+                    </div>
+                    <div className="text-right text-[12px] font-semibold tabular-nums text-ink-900">
+                      {k.volumeLabel}
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex-1 h-1 rounded-full bg-cream-2 overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-bithumb"
+                          style={{
+                            width: `${Math.min(100, (k.volumeAnnual / maxVolume) * 100)}%`,
+                          }}
+                        />
+                      </div>
+                      <span
+                        className={`text-[10px] font-semibold tabular-nums shrink-0 w-10 text-right ${
+                          k.trend > 0
+                            ? 'text-bithumb-deep'
+                            : k.trend < 0
+                            ? 'text-accent-blue'
+                            : 'text-ink-700'
+                        }`}
+                      >
+                        {k.trend > 0 ? '+' : ''}
+                        {k.trend}%
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </DashboardBlock>
+
+          <DashboardBlock
+            eyebrow="03 · 소비자 여정"
+            title="JOURNEY · INCOMING / OUTGOING"
+          >
+            <div className="grid grid-cols-2 gap-2 mb-2">
+              <MiniJourneyCol
+                label="INCOMING"
+                items={opportunity.journey.incoming}
+                positive
+              />
+              <MiniJourneyCol
+                label="OUTGOING"
+                items={opportunity.journey.outgoing}
+              />
+            </div>
+            <div className="rounded-lg border border-gold/40 bg-gold-50 px-3 py-2">
+              <div className="text-[9px] uppercase tracking-[0.22em] text-gold-deep font-bold mb-0.5">
+                🔍 인식 공백 · THE GAP
+              </div>
+              <p className="text-[12px] text-ink-900 font-semibold leading-snug">
+                {opportunity.journey.gap}
+              </p>
+            </div>
+          </DashboardBlock>
+        </div>
+
+        {/* Row 3 — 04 Bridge + 05 Next */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4">
+          <DashboardBlock
+            eyebrow="04 · 빗썸 연결"
+            title="BRAND BRIDGE"
+          >
+            <div className="rounded-xl border-2 border-bithumb/40 bg-gradient-to-br from-bithumb-50 via-cream to-cream p-4 shadow-card relative overflow-hidden mb-2">
+              <span className="absolute left-0 top-0 bottom-0 w-1.5 bg-bithumb" aria-hidden />
+              <div className="pl-2">
+                <div className="text-[9px] uppercase tracking-[0.22em] text-bithumb-deep font-bold mb-1.5">
+                  + CORE MESSAGE
+                </div>
+                <p className="text-base md:text-lg font-bold tracking-tight leading-snug text-balance text-ink-900">
+                  {opportunity.bridge.message}
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="rounded-lg border border-line bg-white px-3 py-2">
+                <div className="text-[9px] uppercase tracking-[0.22em] text-ink-500 font-bold mb-1.5">
+                  활용 자산
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {bridgeAssets.map((a) => (
+                    <span
+                      key={a!.id}
+                      className="inline-flex items-center gap-1 bg-cream-2 px-2 py-0.5 rounded-full text-[11px] border border-line"
+                    >
+                      <span className="text-xs leading-none">{a!.icon}</span>
+                      <span className="font-semibold">{a!.label}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-lg border border-line bg-white px-3 py-2">
+                <div className="text-[9px] uppercase tracking-[0.22em] text-ink-500 font-bold mb-1.5">
+                  연결 상품
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {opportunity.bridge.products.map((p, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center bg-bithumb-50 border border-bithumb-100 text-bithumb-deep px-2 py-0.5 rounded-full text-[11px] font-semibold"
+                    >
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </DashboardBlock>
+
+          <DashboardBlock eyebrow="05 · 다음 단계" title="NEXT · Phase 3 → 4">
+            <div className="grid grid-cols-1 gap-2">
+              <MiniNextCard
+                phase="Phase 3"
+                icon="🎬"
+                title="AI 숏폼 아이디어"
+                desc="이 소구 기회로 15-30초 숏폼 콘셉트 자동 생성"
+              />
+              <MiniNextCard
+                phase="Phase 4"
+                icon="🎯"
+                title="크리에이터 매칭"
+                desc="이 페르소나에 어울리는 한국 크리에이터 자동 매칭"
+              />
+            </div>
+          </DashboardBlock>
+        </div>
+
+        {/* FOOTER NAV */}
+        <div className="pt-2">
+          <Link
+            href={`/opportunity/${territory.id}`}
+            className="inline-flex items-center gap-1.5 text-xs text-ink-500 hover:text-ink-900 transition-colors"
+          >
+            ← {territory.categoryName} 영토로 돌아가기
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }
@@ -378,7 +355,7 @@ function GlobalProgress({ active }: { active: 1 | 2 | 3 | 4 }) {
   ];
   return (
     <div className="border-b border-line bg-cream-2">
-      <div className="max-w-[1240px] mx-auto px-6 py-3.5">
+      <div className="max-w-[1240px] mx-auto px-6 py-2.5">
         <div className="flex items-center gap-2 md:gap-3 overflow-x-auto">
           {steps.map((s, i) => {
             const stepNum = i + 1;
@@ -387,7 +364,7 @@ function GlobalProgress({ active }: { active: 1 | 2 | 3 | 4 }) {
             return (
               <div key={s.num} className="flex items-center gap-2 md:gap-3 shrink-0">
                 <span
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
                     status === 'active'
                       ? 'bg-bithumb text-white'
                       : status === 'done'
@@ -395,7 +372,7 @@ function GlobalProgress({ active }: { active: 1 | 2 | 3 | 4 }) {
                       : 'bg-white/60 border border-line text-ink-300'
                   }`}
                 >
-                  <span className="text-[10px] opacity-70">{s.num}</span>
+                  <span className="text-[10px] opacity-80">{s.num}</span>
                   <span>{s.label}</span>
                   {status === 'done' && <span className="text-bithumb">✓</span>}
                   {status === 'soon' && (
@@ -416,61 +393,50 @@ function GlobalProgress({ active }: { active: 1 | 2 | 3 | 4 }) {
   );
 }
 
-function Section({
-  emoji,
+function DashboardBlock({
   eyebrow,
   title,
-  desc,
   children,
 }: {
-  emoji: string;
   eyebrow: string;
   title: string;
-  desc?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="max-w-[1240px] mx-auto px-6 py-10 md:py-12">
-      <div className="mb-6 flex items-start gap-4 flex-wrap">
-        <span className="text-3xl md:text-4xl leading-none">{emoji}</span>
-        <div className="flex-1 min-w-0">
-          <div className="text-[11px] uppercase tracking-[0.22em] text-bithumb font-bold">
-            {eyebrow}
-          </div>
-          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-ink-900 mt-0.5">
-            {title}
-          </h2>
-          {desc && (
-            <p className="mt-2 text-sm text-ink-500 leading-relaxed max-w-3xl">
-              {desc}
-            </p>
-          )}
-        </div>
+    <div>
+      <div className="flex items-baseline gap-2 mb-2 flex-wrap">
+        <span className="text-[10px] uppercase tracking-[0.22em] text-bithumb font-bold">
+          {eyebrow}
+        </span>
+        <span className="text-ink-300">·</span>
+        <span className="text-sm font-bold tracking-tight text-ink-900">{title}</span>
       </div>
       {children}
-    </section>
+    </div>
   );
 }
 
-function HeroStatRow({
+function CompactStat({
   label,
   value,
-  highlight,
+  tone,
 }: {
   label: string;
   value: string;
-  highlight?: boolean;
+  tone?: 'bithumb';
 }) {
+  const toneStyles =
+    tone === 'bithumb'
+      ? 'bg-bithumb-50 border-bithumb-100'
+      : 'bg-cream-3 border-line';
   return (
-    <div>
-      <div className="text-[10px] uppercase tracking-[0.22em] text-ink-500 font-semibold mb-1">
+    <div className={`rounded-lg border ${toneStyles} px-2 py-1.5`}>
+      <div className="text-[9px] uppercase tracking-[0.22em] text-ink-500 font-semibold leading-none">
         {label}
       </div>
       <div
-        className={`tabular-nums ${
-          highlight
-            ? 'text-2xl md:text-3xl font-bold text-bithumb'
-            : 'text-base font-semibold text-ink-900'
+        className={`text-sm font-bold tabular-nums leading-tight mt-1 ${
+          tone === 'bithumb' ? 'text-bithumb-deep' : 'text-ink-900'
         }`}
       >
         {value}
@@ -479,14 +445,12 @@ function HeroStatRow({
   );
 }
 
-function PersonaCard({
+function PersonaMiniCard({
   label,
-  sub,
   field,
   tone,
 }: {
   label: string;
-  sub: string;
   field: PersonaField;
   tone: 'indigo' | 'crimson' | 'emerald' | 'amber';
 }) {
@@ -515,30 +479,27 @@ function PersonaCard({
   const t = tones[tone];
   return (
     <div
-      className={`rounded-2xl border border-line border-l-4 ${t.border} bg-white p-6 shadow-card`}
+      className={`rounded-xl border border-line border-l-4 ${t.border} bg-white p-3 shadow-card`}
     >
-      <div className="flex items-baseline gap-2 mb-3">
-        <span className={`text-sm font-bold tracking-[0.18em] ${t.text}`}>
-          {label}
-        </span>
-        <span className="text-[10px] text-ink-500">· {sub}</span>
+      <div className={`text-[10px] font-bold tracking-[0.18em] ${t.text} mb-1.5`}>
+        {label}
       </div>
-      <p className="text-sm md:text-base text-ink-900 font-medium text-pretty leading-relaxed mb-4">
+      <p className="text-[12px] text-ink-900 font-medium leading-snug mb-2 line-clamp-3">
         {field.value}
       </p>
-      <div
-        className={`pt-3 border-t border-line ${t.tint} -mx-6 -mb-6 px-6 pb-5 rounded-b-2xl`}
-      >
-        <div className="text-[9px] uppercase tracking-[0.22em] text-ink-500 font-bold mb-1 mt-3">
-          DATA EVIDENCE
+      <div className={`-mx-3 -mb-3 px-3 py-1.5 ${t.tint} rounded-b-xl border-t border-line-soft`}>
+        <div className="text-[8px] uppercase tracking-[0.22em] text-ink-500 font-bold">
+          EVIDENCE
         </div>
-        <p className="text-[11px] text-ink-700 leading-snug">{field.evidence}</p>
+        <p className="text-[10px] text-ink-700 leading-snug line-clamp-1">
+          {field.evidence}
+        </p>
       </div>
     </div>
   );
 }
 
-function JourneyCol({
+function MiniJourneyCol({
   label,
   items,
   positive,
@@ -548,19 +509,19 @@ function JourneyCol({
   positive?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-line bg-white p-6 shadow-card">
+    <div className="rounded-lg border border-line bg-white px-3 py-2">
       <div
-        className={`text-[10px] uppercase tracking-[0.22em] font-bold mb-4 ${
+        className={`text-[9px] uppercase tracking-[0.22em] font-bold mb-1.5 ${
           positive ? 'text-bithumb-deep' : 'text-ink-500'
         }`}
       >
         {label}
       </div>
-      <ul className="space-y-3">
-        {items.map((item, i) => (
+      <ul className="space-y-1">
+        {items.slice(0, 3).map((item, i) => (
           <li
             key={i}
-            className={`text-sm text-ink-700 pl-4 relative leading-relaxed before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-2 before:h-2 before:rounded-full ${
+            className={`text-[11px] text-ink-700 pl-3 relative leading-snug line-clamp-1 before:content-[''] before:absolute before:left-0 before:top-[0.45em] before:w-1.5 before:h-1.5 before:rounded-full ${
               positive ? 'before:bg-bithumb' : 'before:bg-ink-300'
             }`}
           >
@@ -572,19 +533,7 @@ function JourneyCol({
   );
 }
 
-function TypeBadge({ type }: { type: 'A' | 'B' }) {
-  return (
-    <span
-      className={`text-[10px] uppercase tracking-[0.22em] font-semibold px-2.5 py-1 rounded-full ${
-        type === 'A' ? 'bg-bithumb text-white' : 'bg-cream-2 text-ink-700 border border-line'
-      }`}
-    >
-      Type {type}
-    </span>
-  );
-}
-
-function NextCard({
+function MiniNextCard({
   phase,
   icon,
   title,
@@ -596,17 +545,33 @@ function NextCard({
   desc: string;
 }) {
   return (
-    <div className="rounded-2xl border border-line bg-white p-6 md:p-7 relative shadow-card hover:shadow-elevated transition-shadow">
-      <div className="flex items-start justify-between mb-4">
-        <span className="text-3xl">{icon}</span>
-        <span className="text-[10px] uppercase tracking-[0.22em] text-ink-300 font-bold">
-          {phase} · SOON
-        </span>
+    <div className="rounded-lg border border-line bg-white px-3 py-2.5 flex items-start gap-2">
+      <span className="text-xl leading-none shrink-0">{icon}</span>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center justify-between mb-0.5">
+          <h3 className="text-[12px] font-bold tracking-tight text-ink-900">
+            {title}
+          </h3>
+          <span className="text-[8px] uppercase tracking-[0.22em] text-ink-300 font-bold shrink-0 ml-2">
+            {phase} · SOON
+          </span>
+        </div>
+        <p className="text-[10px] text-ink-500 leading-snug line-clamp-2">
+          {desc}
+        </p>
       </div>
-      <h3 className="text-lg font-bold tracking-tight text-ink-900 mb-2 text-balance">
-        {title}
-      </h3>
-      <p className="text-sm text-ink-500 leading-relaxed text-pretty">{desc}</p>
     </div>
+  );
+}
+
+function TypeBadge({ type }: { type: 'A' | 'B' }) {
+  return (
+    <span
+      className={`text-[9px] uppercase tracking-[0.22em] font-semibold px-1.5 py-0.5 rounded-full ${
+        type === 'A' ? 'bg-bithumb text-white' : 'bg-cream-2 text-ink-700 border border-line'
+      }`}
+    >
+      Type {type}
+    </span>
   );
 }
